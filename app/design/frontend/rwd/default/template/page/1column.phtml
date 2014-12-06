@@ -1,0 +1,203 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js"> <!--<![endif]-->
+
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col1-layout">
+            <div class="main">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>
+					
+		<!--Categegroy list--> 
+			<?php      
+					if(Mage::getSingleton('cms/page')->getIdentifier()== 'home' && Mage::app()->getFrontController()->getRequest()->getRouteName()=='cms') : ?>
+						<h2 class="heading"><span class="leftbder"></span><span class="title">The Latest From <strong>Santushti</strong></span><span class="rightbder"></span></h2>             
+					<ul class="categoryList row"> 
+					<?php 
+					
+					$categories = Mage::getModel('catalog/category') ->getCollection() ->addAttributeToSelect('*') ->addIsActiveFilter();
+						
+						foreach($categories as $_category){ 
+								
+								$cat_name =  $_category->getName();
+							if($cat_name !="Default Category"){ 
+								
+								$_imgUrl = $_category->getImageUrl();/* get Categegroy image url */ 
+								
+								echo '<li class="cat_img col-sm-3"><a href="' . $_category->getURL() . '"><img height="300" width="300" src="'.$_imgUrl.'"></a>'; 
+								
+								echo '<center><a href="' . $_category->getURL() . '">'.$_category->getName().'</a></center></li>';  
+								} 
+                            }    
+                    ?>
+					</ul>
+<!--End of Categegroy list-->
+<!--- New Products display ---->
+		 <?php  
+				echo $this->getLayout()->createBlock('cms/block')->setBlockId('new_arrival_product')->toHtml();
+			endif; 
+		?>
+<!--- End Of New Products display ---->	
+			
+			
+<?php 
+if( Mage::getSingleton('cms/page')->getIdentifier()=='home' && Mage::app()->getFrontController()->getRequest()->getRouteName()=='cms'){
+// Put your homepage-only code in here.	 
+?>		
+			
+		<h2 class="heading"><span class="leftbder"></span><span class="title">Best Seller <strong>Products</strong></span><span class="rightbder"></span> </h2>			
+		<?php /* Best Seller*/
+				$visibility = array(
+						Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
+						Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
+				);
+				
+				$storeId = Mage::app()->getStore()->getId();
+				
+				$_productCollection = Mage::getResourceModel('reports/product_collection')
+				->addAttributeToSelect('*')
+				->addOrderedQty()
+				->addAttributeToFilter('visibility', $visibility)
+				->setOrder('ordered_qty', 'desc');
+
+				
+			/*	$products = Mage::getResourceModel('reports/product_collection')
+						->addOrderedQty()
+						->addAttributeToSelect('id')
+						->addAttributeToSelect(array('name','price','small_image'))
+						->setStoreId($storeId)
+						->addStoreFilter($storeId)
+						->setOrder('ordered_qty', 'desc'); /* most best sellers on top */
+			
+			/*	echo"<pre>";
+				print_r($_productCollection);
+				echo"</pre>"; 
+			*/
+?>
+			<div class="widget-products">
+				<div class="elastislide-wrapper elastislide-horizontal">
+					<div class="elastislide-carousel">
+						<ul class="elastislide-list" id="carousel" style="display: block;">
+						
+				<?php foreach($_productCollection->getItems() as $bs_product){ ?>
+
+							<li> 
+								<a href="<?php echo $bs_product->getProductUrl() ?>">
+								   <img src="<?php echo $this->helper('catalog/image')->init($bs_product, 'small_image')->resize(200) ?>">
+								</a>			
+								
+								<div class="product-info">
+									<h3 class="product-name"><a href="<?php echo $bs_product->getUrl_path(); ?>" title="<?php echo $bs_product->Name; ?>"><?php echo $bs_product->Name; ?></a></h3>
+									
+									<h3><?php  $bs_product->price; ?></h3>
+									
+									
+									<div class="price-box">
+                                        <span class="regular-price">
+                                            <span class="price">
+										<?php /*  currency with sign */
+										echo $_formattedActualPrice = Mage::helper('core')->currency($bs_product->getPrice(),true,false);  ?>
+											</span>
+										</span>
+									</div>
+									
+								</div>
+							</li>
+							<?php } ?>
+						</ul>
+					</div>
+				</div>	
+			</div>
+<?php } ?>		
+
+                </div>
+				
+				<div class="row spacertop">
+					<div class="col-sm-4 left-column">
+						<div class="deals_head"><h1>Deals Of The Month (30% off)</h1></div>
+						<div class="col_deals">
+                        	<h3>Boutique <span>Clothing</span></h3>
+                            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_deals_of_day_1_col')->toHtml(); ?><!-- call static Block -->
+                            </div>
+						<div class="col_deals">
+                       <h3>Boutique <span>Collection</span></h3>
+                         	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_deals_of_day_2_col')->toHtml(); ?><!-- call static Block -->
+                        
+                        </div>
+					</div>
+					<div class="col-sm-8">
+						<div class="col_right">
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('news-letter')->toHtml(); ?>	
+						</div>
+					</div>
+				</div>
+				
+				
+            </div>
+        </div>
+        
+    </div>
+</div>
+		<?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>		
+<?php echo $this->getAbsoluteFooter() ?>
+<script type="text/javascript">
+	//<![CDATA[
+jQuery(window).load(function(){
+	jQuery('.options-list li a').on('click', function(){
+	jQuery('li a.current').removeClass('current');
+	jQuery(this).addClass('current');
+	});
+});//]]> 
+</script>
+</body>
+</html>
+
