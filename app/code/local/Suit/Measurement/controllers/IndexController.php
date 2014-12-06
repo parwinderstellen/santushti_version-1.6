@@ -40,10 +40,11 @@ class Suit_Measurement_IndexController extends Mage_Core_Controller_Front_Action
 									
 									
 									
-		$sleeveLength=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['sleeveLength'] ;
+	$sleeveLength=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['sleeveLength'] ;
+        $acrossshoulder=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['acrossshoulder'];
         $bust=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['bust'];
         $waist=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['waist'];
-		$hip=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['hip'];
+	$hip=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['hip'];
         $length=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['length'];
         $toFitWaist=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['toFitWaist'];
         $toFitHip=$_SESSION['product_sku']['Custom Size'][$_POST[productSku]]['toFitHip'];
@@ -58,8 +59,9 @@ class Suit_Measurement_IndexController extends Mage_Core_Controller_Front_Action
 				<th >Sleeve Length</th>
 				<td class="val_even">'. $sleeveLength .'</td>
 				<td></td>
-				<th class="th_heading">Bust</th>
-				<td class="val_even">'. $bust .'</td>
+                                <th >Across Shoulder</th>
+				<td class="val_even">'. $acrossshoulder .'</td>
+				
 			</tr>
 			<tr class="odd_1">
 				<th>Waist</th>
@@ -86,6 +88,8 @@ class Suit_Measurement_IndexController extends Mage_Core_Controller_Front_Action
 				<th class="th_heading">Inseam Length</th>
 				<td class="val_even">'. $inSeamLength .'</td>
 				<td></td>
+                                <th class="th_heading">Bust</th>
+				<td class="val_even">'. $bust .'</td>
 			</tr>
 		</table>';
 

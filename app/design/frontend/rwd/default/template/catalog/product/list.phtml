@@ -32,6 +32,26 @@
  */
 /* @var $this Mage_Catalog_Block_Product_List */
 ?>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+<style>
+a.tooltip span {
+    display: none;
+    line-height: 16px;
+    left: -8px;
+    margin-top: 0px;
+    top: 62px;
+    padding: 5px 0px 10px;
+    width: 250px;
+    z-index: 110;
+    background: none repeat scroll 0% 0% #FFF;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 300;
+    border-radius: 5px;
+    position: absolute;
+    font-size: 15px;
+    border: 1px solid #B3B3B3;
+}
+</style>
 <?php
 $_productCollection = $this->getLoadedProductCollection();
 $_helper = $this->helper('catalog/output');
@@ -132,13 +152,18 @@ $_helper = $this->helper('catalog/output');
 		      <?php endif */ ?>
 	    	<li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
 	    	    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-	    <?php $_imgSize = 210; ?>
+			<?php $_imgSize = 210; ?>
 	    		<img id="product-collection-image-<?php echo $_product->getId(); ?>"
 	    		     src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>"
 	    		     alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
 	    	    </a>
 	    	    <div class="product-info">
-	    		<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+	    		<h2 class="product-name">
+					<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
+					<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+					
+					</a>
+				</h2>
 			  
 			    <?php echo $this->getPriceHtml($_product, true) ?>
                         
@@ -161,6 +186,23 @@ $_helper = $this->helper('catalog/output');
 			    <?php if ($_product->getRatingSummary()): ?>
 				<?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
 				<?php endif; ?>
+				<div class ="share_pro" style="">
+					<ul class="">
+								<?php 	$_productUrl = urlencode(trim($_product->getProductUrl())); 
+									$_productName = urlencode(trim($_helper->productAttribute($_product, $_product->getName(), 'name')));  
+									$_productImageUrl = urlencode(trim($this->helper('catalog/image')->init($_product, 'image'))); 		
+									$_ShortDesc = urlencode(trim($_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description'))); 
+								?>
+							<li id="fb_share">	
+								<?php $_u = 'p[url]=' . $_productUrl . '&p[images][0]=' . $_productImageUrl . '&p[title]=' . $_productName . '&p[summary]=' . urlencode(trim($_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description'))); ?>
+								
+								<a href="<?php echo 'http://www.facebook.com/sharer.php?s=100&' . $_u; ?>" target="_blank" title="<?php echo $this->__('Share on Facebook') ?>" class="link-facebook"> <?php echo $this->__('Share Facebook') ?></a>
+							</li>
+							<li id="tw_share">
+								<a href="<?php echo 'http://twitter.com/home?status=' . $_productName . '+' . $_productUrl; ?>" target="_blank" title="<?php echo $this->__('Share on Twitter') ?>" class="link-twitter"><?php echo $this->__('Share on Twitter') ?></a>
+							</li>
+					</ul>
+				</div>
 	    		<div class="actions">
                             
                             
@@ -173,10 +215,15 @@ $_helper = $this->helper('catalog/output');
                                         </a>
                                     </li>
                                     <li class="share_icon">
-                                        <a href="javascript:void(0)">
-                                            <img width="25" height="25" src="http://qph.is.quoracdn.net/main-qimg-09b8f2012309db4c109dfed5c97b7e80?convert_to_webp=true">
-                                        </a>
+                                        <a  class="" href="javascript:void(0)">
+                                            <img width="25" height="25" src="http://qph.is.quoracdn.net/main-qimg-09b8f2012309db4c109dfed5c97b7e80?convert_to_webp=true">											
+										 </a>
+										 
+
+										
                                     </li>
+									
+									
                                     <li class="view_icon">
                                         <a href="<?php echo $_product->getProductUrl() ?>">
                                             <img width="25" height="25" src="https://cdn2.iconfinder.com/data/icons/website-icons/512/Eyeball-128.png">
@@ -184,8 +231,9 @@ $_helper = $this->helper('catalog/output');
                                     </li>
                                 </ul>
                             </div>
-     <!---- End Of Detail Icon Start----------->                           
-                            
+     <!---- End Of Detail Icon Start----------->       
+
+				             
 				<?php /* if (!$_product->canConfigure() && $_product->isSaleable()): ?>
 				    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
 				<?php elseif ($_product->getStockItem() && $_product->getStockItem()->getIsInStock()): ?>
@@ -229,3 +277,13 @@ if ($this->getChild('after')) {
     }
 }
 ?>
+<script>
+	$(document).ready(function(){
+		 $(".share_icon").mouseenter(function(){ /* when mouse is enter on div */
+		 
+                $(this).find('.share_pro').show();/* this will find the give class and show it */
+				
+				
+        });
+	});
+</script>

@@ -4,6 +4,7 @@ $path=jQuery("#path").val();
  jQuery('#save_data').click(function(){
        
                 var sleeveLength =jQuery('#sleeveLength').val();
+                var acrossshoulder =jQuery('#acrossshoulder').val();
 				var bust = jQuery('#bust').val();
 				var waist = jQuery('#waist').val();
 				var hip = jQuery('#hip').val();
@@ -22,6 +23,7 @@ $path=jQuery("#path").val();
 			jQuery.post($path+'measurement',{
 		
 					sleeveLength:sleeveLength,
+					acrossshoulder:acrossshoulder,
 					bust: bust,
 					waist: waist,
 					hip: hip,
@@ -39,6 +41,7 @@ $path=jQuery("#path").val();
 						jQuery("#custom_size_modal").hide();	
 						jQuery("#msg").html("Custom size added successfully");
 						jQuery("#customSizeSts").val("1");
+						
 						
 						eval("returne="+data);
 						jQuery("#cust_size").show();  		
@@ -61,6 +64,7 @@ $path=jQuery("#path").val();
              
        
                 var sleeveLength =jQuery('#'+$sku_id+'_sleeveLength').val();
+                var acrossshoulder =jQuery('#'+$sku_id+'_acrossshoulder').val();
 				var bust = jQuery('#'+$sku_id+'_bust').val();
 				var waist = jQuery('#'+$sku_id+'_waist').val();
 				var hip = jQuery('#'+$sku_id+'_hip').val();
@@ -79,6 +83,7 @@ $path=jQuery("#path").val();
          jQuery.post($path+'measurement',{
 		
 				sleeveLength:sleeveLength,
+				acrossshoulder:acrossshoulder,
                 bust: bust,
                 waist: waist,
 				hip: hip,
@@ -94,7 +99,7 @@ $path=jQuery("#path").val();
 		jQuery(".custom_size_modal_"+$sku_id).hide();	
                   
                         
-              var tool_html="<a class='tooltip_cart'  title='<div id=drees_measures><h2>Dress Measures</h2> <ul><li><span>Sleeve Length - "+sleeveLength+" cm</span><span>Bust - "+bust+" cm</span></li><li><span>Waist - "+waist+"  cm</span><span>Hip - "+hip+" cm</span></li><li><span>Length - "+length+" cm</span><span>To Fit Waist - "+toFitWaist+" cm</span></li><li><span>To Fit Hip - "+toFitHip+" cm</span><span>Out Seam Length -  "+outSeamLength+" cm</span></li><li><span>In Seam Length - "+inSeamLength+"cm</span></ul>' href='#'>View Meaurement</a></div>";        
+              var tool_html="<a class='tooltip_cart'  title='<div id=drees_measures><h2>Dress Measures</h2> <ul><li><span>Sleeve Length - "+sleeveLength+" cm</span><span>Across Shoulder - "+acrossshoulder+" cm</span></li><li><span>Waist - "+waist+"  cm</span><span>Hip - "+hip+" cm</span></li><li><span>Length - "+length+" cm</span><span>To Fit Waist - "+toFitWaist+" cm</span></li><li><span>To Fit Hip - "+toFitHip+" cm</span><span>Out Seam Length -  "+outSeamLength+" cm</span></li><li><span>In Seam Length - "+inSeamLength+"cm</span><span>Bust - "+bust+" cm</span></li></ul>' href='#'>View Meaurement</a></div>";        
             
 			jQuery("#"+$sku_id).html(tool_html);
 			jQuery('.tooltip_cart').poshytip();	

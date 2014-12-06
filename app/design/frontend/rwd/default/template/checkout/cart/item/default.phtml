@@ -99,6 +99,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 
                                    
                                   $sleeveLength=$customOption[$product_sku]['sleeveLength'];
+                                  $acrossshoulder=$customOption[$product_sku]['acrossshoulder'];
                                        $bust=$customOption[$product_sku]['bust'];
                                        $waist=$customOption[$product_sku]['waist'];
                                        $hip=$customOption[$product_sku]['hip'];
@@ -107,23 +108,25 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                                        $toFitHip=$customOption[$product_sku]['toFitHip'];
                                        $outSeamLength=$customOption[$product_sku]['outSeamLength'];
                                        $inSeamLength=$customOption[$product_sku]['inSeamLength'];
-                                     $_SESSION['product_sku']['Custom Size'][$product_sku]['sleeveLength']=$sleeveLength;
-                                       
-                                       $_SESSION['product_sku']['Custom Size'][$product_sku]['bust']=$bust;
-                                      $_SESSION['product_sku']['Custom Size'][$product_sku]['waist']=$waist;
-                                      $_SESSION['product_sku']['Custom Size'][$product_sku]['hip']= $hip;
-                                      $_SESSION['product_sku']['Custom Size'][$product_sku]['length']=$length;
-                                      $_SESSION['product_sku']['Custom Size'][$product_sku]['toFitWaist']=$toFitWaist;
-                                      $_SESSION['product_sku']['Custom Size'][$product_sku]['toFitHip']=$toFitHip;;
-                                      $_SESSION['product_sku']['Custom Size'][$product_sku]['outSeamLength']=$outSeamLength;
-                                      $_SESSION['product_sku']['Custom Size'][$product_sku]['inSeamLength']= $inSeamLength;
-                                       $tooltip_html="<div id='drees_measures'><h2>Dress Measures</h2>"
-                                                  . " <ul><li><span>Sleeve Length - $sleeveLength cm</span><span>Bust - $bust cm</span></li>"
-                                                  . "<li><span>Waist - $waist cm</span><span>Hip - $hip cm</span></li>"
-                                                  . "<li><span>Length - $length cm</span><span>To Fit Waist - $toFitWaist cm</span></li>"
-                                                  . "<li><span>To Fit Hip - $toFitHip cm</span><span>Out Seam Length - $outSeamLength cm</span></li>"
-                                                  . "<li><span>In Seam Length - $inSeamLength cm</span>"
-                                                  . "</ul>";
+                                    
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['sleeveLength']=$sleeveLength;
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['acrossshoulder']=$acrossshoulder;   
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['bust']=$bust;
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['waist']=$waist;
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['hip']= $hip;
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['length']=$length;
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['toFitWaist']=$toFitWaist;
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['toFitHip']=$toFitHip;;
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['outSeamLength']=$outSeamLength;
+                                    $_SESSION['product_sku']['Custom Size'][$product_sku]['inSeamLength']= $inSeamLength;
+                                    
+                                $tooltip_html="<div id='drees_measures'><h2>Dress Measures</h2>"
+                                    . " <ul><li><span>Sleeve Length - $sleeveLength cm</span><span>Across Shoulder - $acrossshoulder cm</span></li>"
+                                    . "<li><span>Waist - $waist cm</span><span>Bust - $bust cm</span></li><span>Hip - $hip cm</span></li>"
+                                    . "<li><span>Length - $length cm</span><span>To Fit Waist - $toFitWaist cm</span></li>"
+                                    . "<li><span>To Fit Hip - $toFitHip cm</span><span>Out Seam Length - $outSeamLength cm</span></li>"
+                                    . "<li><span>In Seam Length - $inSeamLength cm</span>"
+                                    . "</ul>";
                                      
                                           
                                    }
@@ -131,6 +134,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                                          
                                           
                                           $sleeveLength=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['sleeveLength'];
+                                          $acrossshoulder=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['acrossshoulder'];
                                           $bust=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['bust'];
                                           $waist=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['waist'];
                                           $hip=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['hip'];
@@ -139,13 +143,14 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                                           $toFitHip=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['toFitHip'];
                                           $outSeamLength=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['outSeamLength'];
                                           $inSeamLength=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['inSeamLength'];
-                                            $tooltip_html="<div id='drees_measures'><h2>Dress Measures</h2>"
-                                                  . " <ul><li><span>Sleeve Length - $sleeveLength cm</span><span>Bust - $bust cm</span></li>"
-                                                  . "<li><span>Waist - $waist cm</span><span>Hip - $hip cm</span></li>"
-                                                  . "<li><span>Length - $length cm</span><span>To Fit Waist - $toFitWaist cm</span></li>"
-                                                  . "<li><span>To Fit Hip - $toFitHip cm</span><span>Out Seam Length - $outSeamLength cm</span></li>"
-                                                  . "<li><span>In Seam Length - $inSeamLength cm</span>"
-                                                  . "</ul>";
+                                    
+                                    $tooltip_html="<div id='drees_measures'><h2>Dress Measures</h2>"
+                                       . " <ul><li><span>Sleeve Length - $sleeveLength cm</span><span>Across Shoulder - $acrossshoulder cm</span></li>"
+                                        . "<li><span>Waist - $waist cm</span><span>Hip - $hip cm</span></li>"
+                                        . "<li><span>Length - $length cm</span><span>To Fit Waist - $toFitWaist cm</span></li>"
+                                        . "<li><span>To Fit Hip - $toFitHip cm</span><span>Out Seam Length - $outSeamLength cm</span></li>"
+                                        . "<li><span>In Seam Length - $inSeamLength cm</span><span>Bust - $bust cm</span></li>"
+                                        . "</ul>";
                                    }
                                       
                                  
@@ -163,11 +168,12 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 
                                          $_SESSION[product_sku][$_formatedOptionValue['value']][$product_sku]['product_status']="addToCart";
 
-                                           if($_formatedOptionValue['value']=="Custom Size")
-                                           {      
+                                    if($_formatedOptionValue['value']=="Custom Size")
+                                        {      
                                                           
-                                                     $sleeveLength=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['sleeveLength'];
-                                                      $bust=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['bust'];
+                                        $sleeveLength=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['sleeveLength'];
+                                        $acrossshoulder=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['acrossshoulder'];  
+                                                    $bust=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['bust'];
                                                       $waist=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['waist'];
                                                       $hip=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['hip'];
                                                       $length=$_SESSION['product_sku'][$_formatedOptionValue['value']][$product_sku]['length'];
@@ -179,13 +185,13 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 
                                         <?php
 
-                                                      $tooltip_html="<div id='drees_measures'><h2>Dress Measures</h2>"
-                                                  . " <ul><li><span>Sleeve Length - $sleeveLength cm</span><span>Bust - $bust cm</span></li>"
-                                                  . "<li><span>Waist - $waist cm</span><span>Hip - $hip cm</span></li>"
-                                                  . "<li><span>Length - $length cm</span><span>To Fit Waist - $toFitWaist cm</span></li>"
-                                                  . "<li><span>To Fit Hip - $toFitHip cm</span><span>Out Seam Length - $outSeamLength cm</span></li>"
-                                                  . "<li><span>In Seam Length - $inSeamLength cm</span>"
-                                                  . "</ul>";
+                                        $tooltip_html="<div id='drees_measures'><h2>Dress Measures</h2>"
+                                        . " <ul><li><span>Sleeve Length - $sleeveLength cm</span><span>Across Shoulder - $acrossshoulder cm</span></li>"
+                                        . "<li><span>Waist - $waist cm</span><span>Hip - $hip cm</span></li>"
+                                        . "<li><span>Length - $length cm</span><span>To Fit Waist - $toFitWaist cm</span></li>"
+                                        . "<li><span>To Fit Hip - $toFitHip cm</span><span>Out Seam Length - $outSeamLength cm</span></li>"
+                                        . "<li><span>In Seam Length - $inSeamLength cm</span><span>Bust - $bust cm</span></li>"
+                                        . "</ul>";
 
                                                  ?>
 

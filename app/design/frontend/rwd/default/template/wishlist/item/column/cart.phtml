@@ -80,6 +80,7 @@ $options = $this->getChild('customer.wishlist.item.options')
          $_SESSION['product_sku']['Custom Size'][$productSku]['inSeamLength']=$customOption[$productSku]['inSeamLength'];
 		 
 		 $sleeveLength=$customOption[$productSku]['sleeveLength'];
+                 $acrossshoulder=$customOption[$productSku]['acrossshoulder'];
          $bust=$customOption[$productSku]['bust'];
          $waist=$customOption[$productSku]['waist'];
          $hip=$customOption[$productSku]['hip'];
@@ -90,11 +91,11 @@ $options = $this->getChild('customer.wishlist.item.options')
          $inSeamLength=$customOption[$productSku]['inSeamLength'];
 			
 				 $tooltip_html="<div id='drees_measures'><h2>Dress Measures</h2>"
-                                                  . " <ul><li><span>Sleeve Length - $sleeveLength cm</span><span>Bust - $bust cm</span></li>"
+                                                  . " <ul><li><span>Sleeve Length - $sleeveLength cm</span><span>Across Shoulder - $acrossshoulder cm</span></li>"
                                                   . "<li><span>Waist - $waist cm</span><span>Hip - $hip cm</span></li>"
                                                   . "<li><span>Length - $length cm</span><span>To Fit Waist - $toFitWaist cm</span></li>"
                                                   . "<li><span>To Fit Hip - $toFitHip cm</span><span>Out Seam Length - $outSeamLength cm</span></li>"
-                                                  . "<li><span>In Seam Length - $inSeamLength cm</span>"
+                                                  . "<li><span>In Seam Length - $inSeamLength cm</span><span>Bust - $bust cm</span></li>"
                                                   . "</ul>";
 							
 		 

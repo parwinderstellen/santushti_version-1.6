@@ -52,6 +52,7 @@ array_pop($path);
 $update_id=0;
 $sleeveLength='';
         $bust='';
+        $acrossshoulder='';
         $waist='';
         $hip='';
         $length='';
@@ -64,6 +65,7 @@ if(in_array('checkout',$path)||in_array('wishlist',$path))
         $update_id=end($path);
        $sku=$_product->getSku();
         $sleeveLength=$_SESSION['product_sku']['Custom Size'][$sku]['sleeveLength'];
+        $acrossshoulder=$_SESSION['product_sku']['Custom Size'][$sku]['acrossshoulder'];
         $bust=$_SESSION['product_sku']['Custom Size'][$sku]['bust'];
         $waist=$_SESSION['product_sku']['Custom Size'][$sku]['waist'];
         $hip=$_SESSION['product_sku']['Custom Size'][$sku]['hip'];
@@ -79,7 +81,7 @@ if(in_array('checkout',$path)||in_array('wishlist',$path))
 		jQuery(document).ready(function(){	
 		jQuery("#cust_size").hide();
 		
-		var value ='<table border=0px><tr><th colspan="5" style="text-align:center; background-color:#87C540;"> Your Custom Size </th></tr><tr class="even_1"><th >Sleeve Length</th><td class="val_even"><?php echo $sleeveLength;?></td><td></td><th class="th_heading">Bust</th><td class="val_even"><?php echo $bust; ?></td></tr><tr class="odd_1"><th>Waist</th><td class="val_odd"><?php echo $waist ?></td><td></td><th class="th_heading">Hip</th><td class="val_odd"><?php echo $hip; ?></td></tr><tr class="even_1"><th>Length</th><td class="val_even"><?php echo $length ;?></td><td></td><th class="th_heading">To Fit Waist</th><td class="val_even"><?php echo $toFitWaist; ?></td></tr><tr class="odd_1"><th>To Fit Hip</th><td class="val_odd"><?php echo $toFitHip;?></td><td></td><th>Outseam Length</th><td class="val_odd"><?php echo $outSeamLength ; ?></td></tr><tr class="even_1"><th class="th_heading">Inseam Length</th><td class="val_even"><?php echo $inSeamLength ; ?></td><td></td></tr></table>';
+		var value ='<table border=0px><tr><th colspan="5" style="text-align:center; background-color:#87C540;"> Your Custom Size </th></tr><tr class="even_1"><th >Sleeve Length</th><td class="val_even"><?php echo $sleeveLength;?></td><td></td><th>Across Shoulder</th><td class="val_even"><?php echo $acrossshoulder ;?></td></tr><tr class="odd_1"><th>Waist</th><td class="val_odd"><?php echo $waist ?></td><td></td><th class="th_heading">Hip</th><td class="val_odd"><?php echo $hip; ?></td></tr><tr class="even_1"><th>Length</th><td class="val_even"><?php echo $length ;?></td><td></td><th class="th_heading">To Fit Waist</th><td class="val_even"><?php echo $toFitWaist; ?></td></tr><tr class="odd_1"><th>To Fit Hip</th><td class="val_odd"><?php echo $toFitHip;?></td><td></td><th>Outseam Length</th><td class="val_odd"><?php echo $outSeamLength ; ?></td></tr><tr class="even_1"><th class="th_heading">Inseam Length</th><td class="val_even"><?php echo $inSeamLength ; ?></td><td></td><th class="th_heading">Bust</th><td class="val_even"><?php echo $bust  ; ?></td></tr></table>';
 	   
 		jQuery("#cust_size").show();  		
 		jQuery("#cust_size").html(value);

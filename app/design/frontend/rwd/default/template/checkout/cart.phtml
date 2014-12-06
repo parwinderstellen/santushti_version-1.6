@@ -221,20 +221,17 @@ while($i<$cnt){
                         
                        
                                    $sleeveLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['sleeveLength'];
-                                     $bust=$_SESSION['product_sku']['Custom Size'][$product_sku]['bust'];
-                                     $waist=$_SESSION['product_sku']['Custom Size'][$product_sku]['waist'];
-                                     $hip=$_SESSION['product_sku']['Custom Size'][$product_sku]['hip'];
-                                     $length=$_SESSION['product_sku']['Custom Size'][$product_sku]['length'];
-                                     $toFitWaist=$_SESSION['product_sku']['Custom Size'][$product_sku]['toFitWaist'];
-                                      $toFitHip=$_SESSION['product_sku']['Custom Size'][$product_sku]['toFitHip'];
-                                      $outSeamLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['outSeamLength'];
-                                      $inSeamLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['inSeamLength'];
+                                   $acrossshoulder=$_SESSION['product_sku']['Custom Size'][$product_sku]['acrossshoulder'];
+                                    $bust=$_SESSION['product_sku']['Custom Size'][$product_sku]['bust'];
+                                    $waist=$_SESSION['product_sku']['Custom Size'][$product_sku]['waist'];
+                                    $hip=$_SESSION['product_sku']['Custom Size'][$product_sku]['hip'];
+                                    $length=$_SESSION['product_sku']['Custom Size'][$product_sku]['length'];
+                                    $toFitWaist=$_SESSION['product_sku']['Custom Size'][$product_sku]['toFitWaist'];
+                                    $toFitHip=$_SESSION['product_sku']['Custom Size'][$product_sku]['toFitHip'];
+                                    $outSeamLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['outSeamLength'];
+                                    $inSeamLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['inSeamLength'];
                                    
-                             
-             
-                       
-            
-                                      ?>
+                            ?>
        
                    
                 
@@ -260,6 +257,7 @@ while($i<$cnt){
                       <input type="hidden" id="<?php echo str_replace(" ","_",$product_sku);?>_customsize" name="cutomsize" value="customsize">
                       <div class='left_pop'>
                  <label>Sleeve Length</label> <input type="text" value="<?php echo $sleeveLength ?>"  class='required number <?php echo str_replace(" ","_",$product_sku);?>_sleeveLength' id="<?php echo str_replace(" ","_",$product_sku);?>_sleeveLength" name="sleeveLength" placeholder=""><br>
+                 <label>Across Shoulder</label> <input type="text" value="<?php echo $acrossshoulder ?>"  class='required number <?php echo str_replace(" ","_",$product_sku);?>_acrossshoulder' id="<?php echo str_replace(" ","_",$product_sku);?>_acrossshoulder" name="acrossshoulder" placeholder=""><br>
                <label>Bust</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_bust" name="bust" value="<?php echo $bust ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_bust' placeholder=""><br> 
               <label>Waist</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_waist" name="waist" value="<?php echo $waist ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_waist' placeholder=""><br>
                <label>Hip</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_hip" name="hip" value="<?php echo $hip ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_hip' placeholder=""><br>

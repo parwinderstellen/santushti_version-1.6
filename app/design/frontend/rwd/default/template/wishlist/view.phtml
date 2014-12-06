@@ -110,6 +110,7 @@ $productSku1 = array_values($productSku);
 		$product_sku=str_replace(" ","_",$productSku);
 	 
 		 $sleeveLength=$_SESSION['product_sku']['Custom Size'][$productSku]['sleeveLength'];
+                 $acrossshoulder=$_SESSION['product_sku']['Custom Size'][$productSku]['acrossshoulder'];
           $bust=$_SESSION['product_sku']['Custom Size'][$productSku]['bust'];
           $waist=$_SESSION['product_sku']['Custom Size'][$productSku]['waist'];
           $hip=$_SESSION['product_sku']['Custom Size'][$productSku]['hip'];
@@ -146,6 +147,7 @@ $productSku1 = array_values($productSku);
                       <input type="hidden" id="<?php echo $product_sku?>_customsize" name="cutomsize" value="customsize">
                       <div class='left_pop'>
                  <label>Sleeve Length</label> <input type="text" value="<?php echo $sleeveLength ?>"  class='required number <?php echo $product_sku?>_sleeveLength' id="<?php echo $product_sku?>_sleeveLength" name="sleeveLength" placeholder=""><br>
+                 <label>Across Shoulder</label> <input type="text" value="<?php echo $acrossshoulder ?>"  class='required number <?php echo $product_sku?>_acrossshoulder' id="<?php echo $product_sku?>_acrossshoulder" name="acrossshoulder" placeholder=""><br>
                <label>Bust</label><input type="text" id="<?php echo $product_sku?>_bust" name="bust" value="<?php echo $bust ?>" class='required number <?php echo $product_sku?>_bust' placeholder=""><br> 
               <label>Waist</label> <input type="text" id="<?php echo $product_sku?>_waist" name="waist" value="<?php echo $waist ?>" class='required number <?php echo $product_sku?>_waist' placeholder=""><br>
                <label>Hip</label><input type="text" id="<?php echo $product_sku?>_hip" name="hip" value="<?php echo $hip ?>" class='required number <?php echo $product_sku?>_hip' placeholder=""><br>
