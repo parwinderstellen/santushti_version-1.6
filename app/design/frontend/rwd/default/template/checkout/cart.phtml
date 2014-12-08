@@ -194,11 +194,7 @@
 <script type="text/javascript">
 		//<![CDATA[
 		jQuery(function(){
-                                         
-                                        
-
-			jQuery('.tooltip_cart').poshytip();
-		
+                        jQuery('.tooltip_cart').poshytip();
 		});
 		//]]>
 	</script>
@@ -220,8 +216,8 @@ while($i<$cnt){
                                   $product_sku=$sku[$i];
                         
                        
-                                   $sleeveLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['sleeveLength'];
-                                   $acrossshoulder=$_SESSION['product_sku']['Custom Size'][$product_sku]['acrossshoulder'];
+                                    $sleeveLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['sleeveLength'];
+                                    $acrossshoulder=$_SESSION['product_sku']['Custom Size'][$product_sku]['acrossshoulder'];
                                     $bust=$_SESSION['product_sku']['Custom Size'][$product_sku]['bust'];
                                     $waist=$_SESSION['product_sku']['Custom Size'][$product_sku]['waist'];
                                     $hip=$_SESSION['product_sku']['Custom Size'][$product_sku]['hip'];
@@ -231,7 +227,11 @@ while($i<$cnt){
                                     $outSeamLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['outSeamLength'];
                                     $inSeamLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['inSeamLength'];
                                    
-                            ?>
+                             
+             
+                       
+            
+                                      ?>
        
                    
                 
@@ -245,37 +245,51 @@ while($i<$cnt){
         <div class="modal-header">
           <button type="button" class="close cls"   data-dismiss="modal" aria-hidden="true">&times;</button>
           
-          <h4 class="modal-title">SEND US YOUR MEASURES</h4> 
+          <h2 class="modal-title">SEND US YOUR MEASURES</h2> 
         </div>
-        <div class="modal-body">
-              
-               <p>Insert all your measures in cm*</p>
-               <div id="mainPopDiv" class="mainPopDiv">
-                  
+        <div class="modal-body">             
+                
+               <div id="mainPopDiv" class="mainPopDiv">                 
                      
                       <input type="hidden" id="<?php echo str_replace(" ","_",$product_sku);?>_productsku" name="productsku" value="<?php echo str_replace(" ","_",$product_sku);?>">
                       <input type="hidden" id="<?php echo str_replace(" ","_",$product_sku);?>_customsize" name="cutomsize" value="customsize">
                       <div class='left_pop'>
-                 <label>Sleeve Length</label> <input type="text" value="<?php echo $sleeveLength ?>"  class='required number <?php echo str_replace(" ","_",$product_sku);?>_sleeveLength' id="<?php echo str_replace(" ","_",$product_sku);?>_sleeveLength" name="sleeveLength" placeholder=""><br>
-                 <label>Across Shoulder</label> <input type="text" value="<?php echo $acrossshoulder ?>"  class='required number <?php echo str_replace(" ","_",$product_sku);?>_acrossshoulder' id="<?php echo str_replace(" ","_",$product_sku);?>_acrossshoulder" name="acrossshoulder" placeholder=""><br>
-               <label>Bust</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_bust" name="bust" value="<?php echo $bust ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_bust' placeholder=""><br> 
-              <label>Waist</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_waist" name="waist" value="<?php echo $waist ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_waist' placeholder=""><br>
-               <label>Hip</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_hip" name="hip" value="<?php echo $hip ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_hip' placeholder=""><br>
-              <label>Length</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_length" value="<?php echo $length ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_length' name="length" placeholder=""><br>
-                      </div>
-              <div class='right_pop'>
-              <label>To Fit Waist</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_toFitWaist" value="<?php echo $toFitWaist ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_toFitWaist' name="toFitWaist" placeholder=""><br>
-               <label>To Fit Hip</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_toFitHip" value="<?php echo $toFitHip ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_toFitHip' name="toFitHip" placeholder=""><br>
-              <label>Outseam Length</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_outSeamLength" value="<?php echo $outSeamLength ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_outSeamLength' name="outSeamLength" placeholder=""><br>
-               <label>Inseam Length</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_inSeamLength" value="<?php echo $inSeamLength ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_inSeamLength' name="inSeamLength" placeholder=""><br>
-              </div>
+                      <div class="clearfix">
+                      <div class="popupwrap">
+                      <div class="half-section">
+                      <div class="col-sm-12"><div class="col-sm-12"><p>Insert all your measures in cm*</p></div></div>
+                          <div class="col-sm-12">
+                     <div class="col-sm-6"><label>Sleeve Length</label> <input type="text" value="<?php echo $sleeveLength ?>"  class='required number <?php echo str_replace(" ","_",$product_sku);?>_sleeveLength' id="<?php echo str_replace(" ","_",$product_sku);?>_sleeveLength" name="sleeveLength" placeholder=""></div>
+                  
+                    <div class="col-sm-6"><label>Across Shoulder</label> <input type="text" value="<?php echo $acrossshoulder ?>"  class='required number <?php echo str_replace(" ","_",$product_sku);?>_acrossshoulder' id="<?php echo str_replace(" ","_",$product_sku);?>_acrossshoulder" name="acrossshoulder" placeholder=""></div>  
                      
+                   <div class="col-sm-6"><label>Bust</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_bust" name="bust" value="<?php echo $bust ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_bust' placeholder=""></div> 
+                  <div class="col-sm-6"><label>Waist</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_waist" name="waist" value="<?php echo $waist ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_waist' placeholder=""></div>
+                   <div class="col-sm-6"><label>Hip</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_hip" name="hip" value="<?php echo $hip ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_hip' placeholder=""></div>
+                  <div class="col-sm-6"><label>Length</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_length" value="<?php echo $length ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_length' name="length" placeholder=""></div>
+                          
+                  <div class="col-sm-6"><label>To Fit Waist</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_toFitWaist" value="<?php echo $toFitWaist ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_toFitWaist' name="toFitWaist" placeholder=""></div>
+                   <div class="col-sm-6"><label>To Fit Hip</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_toFitHip" value="<?php echo $toFitHip ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_toFitHip' name="toFitHip" placeholder=""></div>
+                  <div class="col-sm-6"><label>Outseam Length</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_outSeamLength" value="<?php echo $outSeamLength ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_outSeamLength' name="outSeamLength" placeholder=""></div>
+                   <div class="col-sm-6"><label>Inseam Length</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_inSeamLength" value="<?php echo $inSeamLength ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_inSeamLength' name="inSeamLength" placeholder=""></div>
+                   <br clear="all" />
+                   <div class="text-center">
+                   <input type="button" value="Save Data"  id="<?php echo str_replace(" ","_",$product_sku);?>" class="save_data btn btn-primary">
+                   </div>
+                  </div>
+                  </div>
+                      <div class="half-section whitetsection measureimgs">
+                      	<img src="<?php echo $this->getSkinUrl('images/suit-exp.jpg')?>" alt="" />
+                      </div>
+             		</div>
+                   </div>
+                 </div>    
                </div>
           
          </div>
         <div class="modal-footer">
-          <a href="#" class="btn btn-default cls"  data-dismiss="modal">Close</a>
-          <input type="button" value="Save Data"  id="<?php echo str_replace(" ","_",$product_sku);?>" class="save_data btn btn-primary">
+          <!--<a href="#" class="btn btn-default cls"  data-dismiss="modal">Close</a>-->
+          <!--<input type="button" value="Save Data"  id="<?php// echo str_replace(" ","_",$product_sku);?>" class="save_data btn btn-primary">-->
           
         </div>
       </div><!-- /.modal-content -->

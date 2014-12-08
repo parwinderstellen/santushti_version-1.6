@@ -70,7 +70,9 @@ $options = $this->getChild('customer.wishlist.item.options')
          $sql1= "select * from wishlist_custom_size where customer_id=$customer_id and product_id=".$product_id;
          $dta = $conn->fetchAll($sql1);
          $customOption=unserialize($dta[0][custom_option]);
-         $_SESSION['product_sku']['Custom Size'][$productSku]['sleeveLength']=$customOption[$productSku]['sleeveLength']; $_SESSION['product_sku']['Custom Size'][$productSku]['bust']=$customOption[$productSku]['bust'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['sleeveLength']=$customOption[$productSku]['sleeveLength'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['acrossshoulder']=$customOption[$productSku]['acrossshoulder'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['bust']=$customOption[$productSku]['bust'];
          $_SESSION['product_sku']['Custom Size'][$productSku]['waist'] =$customOption[$productSku]['waist'];
          $_SESSION['product_sku']['Custom Size'][$productSku]['hip']=$customOption[$productSku]['hip'];
          $_SESSION['product_sku']['Custom Size'][$productSku]['length']=$customOption[$productSku]['length'];
@@ -79,16 +81,16 @@ $options = $this->getChild('customer.wishlist.item.options')
          $_SESSION['product_sku']['Custom Size'][$productSku]['outSeamLength']=$customOption[$productSku]['outSeamLength'];
          $_SESSION['product_sku']['Custom Size'][$productSku]['inSeamLength']=$customOption[$productSku]['inSeamLength'];
 		 
-		 $sleeveLength=$customOption[$productSku]['sleeveLength'];
-                 $acrossshoulder=$customOption[$productSku]['acrossshoulder'];
-         $bust=$customOption[$productSku]['bust'];
-         $waist=$customOption[$productSku]['waist'];
-         $hip=$customOption[$productSku]['hip'];
-         $length=$customOption[$productSku]['length'];
-         $toFitWaist=$customOption[$productSku]['toFitWaist'];
-         $toFitHip=$customOption[$productSku]['toFitHip'];
-         $outSeamLength=$customOption[$productSku]['outSeamLength'];
-         $inSeamLength=$customOption[$productSku]['inSeamLength'];
+		$sleeveLength=$customOption[$productSku]['sleeveLength'];
+                $acrossshoulder=$customOption[$productSku]['acrossshoulder'];
+                $bust=$customOption[$productSku]['bust'];
+                $waist=$customOption[$productSku]['waist'];
+                $hip=$customOption[$productSku]['hip'];
+                $length=$customOption[$productSku]['length'];
+                $toFitWaist=$customOption[$productSku]['toFitWaist'];
+                $toFitHip=$customOption[$productSku]['toFitHip'];
+                $outSeamLength=$customOption[$productSku]['outSeamLength'];
+                $inSeamLength=$customOption[$productSku]['inSeamLength'];
 			
 				 $tooltip_html="<div id='drees_measures'><h2>Dress Measures</h2>"
                                                   . " <ul><li><span>Sleeve Length - $sleeveLength cm</span><span>Across Shoulder - $acrossshoulder cm</span></li>"

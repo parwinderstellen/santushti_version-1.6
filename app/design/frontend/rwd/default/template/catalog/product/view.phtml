@@ -91,9 +91,7 @@ if(in_array('checkout',$path)||in_array('wishlist',$path))
 	</script>   
 	
 	<?php   
-	   
 	   } 
-
 ?>
 
 
@@ -357,29 +355,15 @@ jQuery('#product-options-wrapper .options-list li input').click(function() {
         jQuery(".cls").click(function(){
              
                if(jQuery("#customSizeSts").val()==0){
-                     
-                   
                              jQuery( ".radio" ).prop( "checked", false );
-                     
-                   
-                             
-                      
-               }
+                }
        
-           jQuery("#custom_size_modal").hide();
+            jQuery("#custom_size_modal").hide();
 	    jQuery("#size_chart").hide();
-           
-           
-         
            
     })
     jQuery(".size_chart").click(function(){
-       
           jQuery("#size_chart").show()
-           
-           
-         
-           
     })
     
 

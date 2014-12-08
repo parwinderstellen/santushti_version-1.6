@@ -36,7 +36,9 @@
 <?php if($_menu): ?>
     <nav id="nav">
         <ol class="nav-primary">
-            <?php echo $_menu ?>
+            <?php //echo $_menu ?>
+			<!---  static block Call for Main Menu ----------->
+			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('main-menu-bar')->toHtml(); ?>
         </ol>
     </nav>
 <?php endif ?>
