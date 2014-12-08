@@ -48,6 +48,7 @@
     <div class="page">
         <?php echo $this->getChildHtml('header') ?>
         <div class="main-container col1-layout">
+            <div class="center-cont-main">
             <div class="main">
                 <?php echo $this->getChildHtml('breadcrumbs') ?>
                 <div class="col-main">
@@ -181,7 +182,7 @@ if( Mage::getSingleton('cms/page')->getIdentifier()=='home' && Mage::app()->getF
 				
             </div>
         </div>
-        
+    </div>
     </div>
 </div>
 		<?php echo $this->getChildHtml('footer_before') ?>

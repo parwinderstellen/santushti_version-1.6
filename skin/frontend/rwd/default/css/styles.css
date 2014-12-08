@@ -11790,3 +11790,16 @@ a.tooltip span ul li:first-child{
 .details {
    color: #636363  !important;
 }
+
+/*-----------Thank you page-----*/
+
+.confirm_div {
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+.confirm_div .page-title h1 {
+    margin: 15px 0px 15px;
+  
+}
+
+/*------------End Of Thank You Page-------->
