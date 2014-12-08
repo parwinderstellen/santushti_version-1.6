@@ -24,8 +24,9 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<!---
 <div class="box-collateral box-tags">
-    <h2><?php echo $this->__('Product Tags') ?></h2>
+    <h2><?php /* echo $this->__('Product Tags') ?></h2>
     <?php echo $this->getChildHtml('list_before')?>
     <?php if( $this->getCount() ): ?>
     <h3><?php echo $this->__('Other people marked this product with these tags:') ?></h3>
@@ -49,7 +50,7 @@
             </button>
         </div>
     </form>
-    <p class="note"><?php echo $this->__("Use spaces to separate tags. Use single quotes (') for phrases.") ?></p>
+    <p class="note"><?php echo $this->__("Use spaces to separate tags. Use single quotes (') for phrases.") */?></p>
     <script type="text/javascript">
     //<![CDATA[
         var addTagFormJs = new VarienForm('addTagForm');
@@ -60,4 +61,4 @@
         }
     //]]>
     </script>
-</div>
+</div>-->
