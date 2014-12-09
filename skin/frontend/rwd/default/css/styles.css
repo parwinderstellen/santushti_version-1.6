@@ -9149,15 +9149,16 @@ div.paypal-logo span > img {
   position: relative;
   display: block;
   width: 100%;
-  margin: 10px 0;
-  border: 1px solid #ededed;
+  /* margin: 10px 0; */
+  border: 0px solid #ededed;
 }
+
 .slideshow-container .slideshow {
   width: 100%;
   padding: 0;
   position: relative;
   margin: 0;
-  border: 10px solid #FFFFFF;
+ /*  border: 10px solid #FFFFFF; */
 }
 .slideshow-container .slideshow > li {
   position: absolute;
@@ -11054,9 +11055,9 @@ input[type=text] {
   margin-top: 5px;
   margin-left: 65%;
 }
-
+/* news Letter */
 .block.block-subscribe {
-    background: url("../images/newsletterbg.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0)!important;
+    background: url("../images/newsletterbg.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0)!important; 
 	background-size:cover;
 	min-height:411px;
 }
@@ -11080,6 +11081,13 @@ input[type=text] {
 	color:#000;
 	text-shadow:2px 2px 6px rgba(0,0,0,0.4);
 }
+.newsletter-form {
+    margin-right: 10px;
+    position: absolute;
+    top: 70px;
+}
+
+/* end Of News Letter */ 
 .left-column h1{
 	background:#169a53;
 	font-size:22px;
@@ -11276,7 +11284,7 @@ margin-top: 0px !important;
     position: absolute;
     top: 0px;
     width: 100%;
-	z-index:99
+	z-index:999
 }
 .header-img img {
     max-width: 100%;
@@ -11509,7 +11517,7 @@ dt label.required{
     font-size: 22px;
     font-weight: 300;
 }
-.col_right p{display:none}
+.col_right p{ /* display:none */ }
 .col_right .block-subscribe p{
 	display:block
 }
@@ -11538,24 +11546,33 @@ dt label.required{
 	font-weight:400
 }
 .homebanner{position:absolute; top:0}
-#home-banner{
-	position:relative;
-/*	height:847px; */
-	height:722px;
+#home-banner {
+    height: 719px;
+	/*position:relative; */
+	/*	height:847px; */
+    left: 50%;
+    margin-left: -585px;
+    max-width: 1216px;
+    position: absolute;
+    z-index: 999;
 }
-#home-banner .container{
-	display:table;
-	height:100%;
-	position:relative;
-	z-index:99;
-	width:100%;
-	padding:0;
-	max-width:1200px;
+#home-banner .container {
+    display: table;
+    height: 100%;
+    padding: 0;
+    position: relative;
+    width: 1200px;
+    z-index: 99;
+/*	max-width:1200px; 
+	width:100%;*/
 }
-#home-banner .container .row{
-	display:table-cell;
-	height:100%;
-	vertical-align:bottom
+#home-banner .container .row {
+    display: table-cell;
+    height: 100%;
+    margin: 0 -15px;
+    padding: 0;
+    vertical-align: bottom;
+    width: 100%;
 }
 #home-banner .container .col-sm-4 .banner-col{
 	text-align:center;
@@ -11730,7 +11747,7 @@ a.tooltip span ul li:first-child{
 @media all and (max-width:768px){
 	#home-banner{
 		height:auto;
-		background:url(../images/banner.jpg) center 0 no-repeat;
+	/*	background:url(../images/banner.jpg) center 0 no-repeat; */
 		background-size:cover;
 		padding-top:120px;
 	}
@@ -11802,4 +11819,10 @@ a.tooltip span ul li:first-child{
   
 }
 
-/*------------End Of Thank You Page-------->
+/*------------End Of Thank You Page--------*/
+
+@media all and (max-width:766px){
+	.header-img {
+		margin-top: 150px !important;
+	}
+}

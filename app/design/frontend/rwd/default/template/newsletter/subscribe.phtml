@@ -23,19 +23,19 @@
  * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
-?><div class="block block-subscribe">
-    <div class="block-title">
-        <strong id='block-title'>&nbsp;<!--<span><?php// echo $this->__('Newsletter') ?></span>--></strong>
-    </div>
+?>
+<div class="block block-subscribe">
+	    <!--<div class="block-title">
+        <strong id='block-title'>&nbsp;<!--<span><?php// echo $this->__('Newsletter') ?></span></strong>
+    </div>--->
+	<div class="newsletter-form">
     <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail" class="row">
         <div class="col-sm-8 pull-right" id="block-content">
-            <h3>
-            	<strong>In Order to Receive News Of The Most <span>Beautiful Dresses</span> for Your Beautiful Body</strong>
- </h3>
-<p class="subscribetext">Sign up for style tips <br />
-news and an exclusive offers</p>
+		<!--- Call Newsletter Text Content ----->
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('news-letter-section-text')->toHtml(); ?>
+        <!--- End Of Text Content ----->   
            
-           <div class="form-subscribe-header">
+		   <div class="form-subscribe-header">
                <!--label for="newsletter"><?php// echo $this->__('Sign Up for Our Newsletter:') ?></label-->
            </div>
            <div class="input-box text-right">
@@ -47,6 +47,7 @@ news and an exclusive offers</p>
          </div> 
        </div>
     </form>
+	</div>
     <script type="text/javascript">
     //<![CDATA[
         var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');

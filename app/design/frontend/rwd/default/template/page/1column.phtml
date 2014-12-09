@@ -55,7 +55,7 @@
                     <?php echo $this->getChildHtml('global_messages') ?>
                     <?php echo $this->getChildHtml('content') ?>
 					
-		<!--Categegroy list--> 
+		<!-- Categegroy list-->
 			<?php      
 					if(Mage::getSingleton('cms/page')->getIdentifier()== 'home' && Mage::app()->getFrontController()->getRequest()->getRouteName()=='cms') : ?>
 						<h2 class="heading"><span class="leftbder"></span><span class="title">The Latest From <strong>Santushti</strong></span><span class="rightbder"></span></h2>             
@@ -161,20 +161,33 @@ if( Mage::getSingleton('cms/page')->getIdentifier()=='home' && Mage::app()->getF
 				
 				<div class="row spacertop">
 					<div class="col-sm-4 left-column">
-						<div class="deals_head"><h1>Deals Of The Month (30% off)</h1></div>
+						<div class="deals_head">
+						<!---Discount Deals Of Month-->
+							
+							<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_deals_of_month_heading')->toHtml(); ?><!-- call static Block -->
+						
+						<!---End Here Discount Deals -->
+						</div>
 						<div class="col_deals">
-                        	<h3>Boutique <span>Clothing</span></h3>
-                            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_deals_of_day_1_col')->toHtml(); ?><!-- call static Block -->
-                            </div>
+                        	<a href="javascript:void(0)">
+							<!-- call static Block -->
+                            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_deals_of_month_1_col')->toHtml(); ?>
+							<!-- End Of call static Block -->
+							</a>
+                        </div>
 						<div class="col_deals">
-                       <h3>Boutique <span>Collection</span></h3>
-                         	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_deals_of_day_2_col')->toHtml(); ?><!-- call static Block -->
-                        
+							<a href="javascript:void(0)">
+							<!-- call static Block -->
+								<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_deals_of_month_2_col')->toHtml(); ?>
+							<!-- End Of call static Block -->
+							</a>
                         </div>
 					</div>
 					<div class="col-sm-8">
 						<div class="col_right">
-						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('news-letter')->toHtml(); ?>	
+						<!-- call Newsletter static Block -->	
+						<?php  echo $this->getLayout()->createBlock('cms/block')->setBlockId('news-letter')->toHtml(); ?>	
+						<!-- End Of static Block -->
 						</div>
 					</div>
 				</div>
@@ -201,4 +214,3 @@ jQuery(window).load(function(){
 </script>
 </body>
 </html>
-

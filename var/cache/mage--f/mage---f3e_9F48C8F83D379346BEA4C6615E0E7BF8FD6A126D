@@ -5,7 +5,6 @@
 			<ul>
 <li class="level0 nav-1 parent"><a class="level0" title="Home Page" href="http://localhost/magento/santushti_new/index.php/?___SID=U">Home</a></li>
 <li class="level0 nav-2"><a class="level0" title="About us" href="http://localhost/magento/santushti_new/index.php/about-magento-demo-store/?___SID=U">About us</a></li>
-<li class="level0 nav-3"><a class="level0" href="http://localhost/magento/santushti_new/index.php/wishlist/?___SID=U">My Wishlist</a></li>
 <li class="level0 nav-4"><a class="level0" title="Sign In" href="javascript:socialLogin();">Sign In</a></li>
 <li class="level0 nav-5 last"><a class="level0" title="Contact Us" href="http://localhost/magento/santushti_new/index.php/contacts/?___SID=U">Contact Us</a></li>
 </ul>        </ol>
